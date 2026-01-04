@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cofre de Ideias</title>
+	<link rel="stylesheet" href="theme_site/light-theme.css">
+	<link rel="stylesheet" href="theme_site/dark-theme.css">
+    <style>
+        :root {
+            --bg-color: linear-gradient(135deg, #f7f8fa, #e8edf3);
+            --text-color: #f0f0f0;
+            --primary-color: #007bff;
+            --container-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: linear-gradient(135deg, #0a0a0a, #1a0f0f);
+            --text-color: #cc2233; /* Vermelho mais suave */
+            --primary-color: #cc2233;
+            --container-bg: #1a0a0a;
+            --shadow: rgba(204, 34, 51, 0.2); /* Sombra mais suave */
+        }
+
+        [data-theme="dark"] .peace {
+            display: inline;
+        }
+
+        [data-theme="dark"] .rock {
+            display: none;
+        }
+        
+        /*  ESTILO GERAL  */
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            background: var(--bg-color);
+            transition: all 0.4s ease;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+        }
+
+        /* CONTAINER */
+        .container {
+            background: var(--container-bg);
+            border-radius: 16px;
+            padding: 40px 60px;
+            box-shadow: 0 8px 25px var(--shadow);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            animation: fadeIn 0.8s ease-in-out;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .container {
+            border: 1px solid #cc2233;
+            position: relative;
+        }
+
+        /* Efeito de brilho mais suave */
+        [data-theme="dark"] .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #cc2233, #992233, #cc2233);
+            border-radius: 18px;
+            z-index: -1;
+            opacity: 0.4; /* Opacidade reduzida */
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                opacity: 0.3;
+            }
+            to {
+                opacity: 0.5;
+            }
+        }
+
+        /*  ANIMAÇÃO */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* TÍTULOS */
+        h1 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        [data-theme="dark"] h1 {
+            text-shadow: 0 0 8px rgba(204, 34, 51, 0.4); /* Sombra mais suave */
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        [data-theme="dark"] p {
+            color: #cc5566; /* Vermelho mais claro para texto */
+            font-weight: 500;
+        }
+
+        /* BOTÕES */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background: var(--primary-color);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px var(--shadow);
+            border: none;
+            width: 100%;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px var(--shadow);
+        }
+
+        [data-theme="dark"] a {
+            background: #cc2233; /* Vermelho sólido mais suave */
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        [data-theme="dark"] a:hover {
+            background: #b31e2e; /* Tom mais escuro no hover */
+            box-shadow: 0 6px 15px rgba(204, 34, 51, 0.3);
+        }
+
+        /* Botão Analytics com cor diferente */
+        .btn-analytics {
+            background: #6f42c1 !important;
+        }
+
+        [data-theme="dark"] .btn-analytics {
+            background: #8B5CF6 !important;
+        }
+
+        .btn-analytics:hover {
+            background: #5a32a3 !important;
+            transform: translateY(-3px);
+        }
+
+        [data-theme="dark"] .btn-analytics:hover {
+            background: #7C3AED !important;
+        }
+
+        /* BOTÃO DE TEMA */
+        .troca_tema {
+            background: #000000;
+            border: 2px solid #007bff;
+            border-radius: 50%;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .troca_tema:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+        }
+
+        [data-theme="dark"] .troca_tema {
+            background: #cc2233;
+            border: 2px solid #000000;
+            color: #000000;
+        }
+
+        [data-theme="dark"] .troca_tema:hover {
+            box-shadow: 0 0 15px rgba(204, 34, 51, 0.5); /* Sombra mais suave */
+            transform: scale(1.1) rotate(-10deg);
+        }
+
+        .rock {
+            display: inline;
+        }
+
+        .peace {
+            display: none;
+        }
+
+        [data-theme="dark"] .peace {
+            filter: drop-shadow(0 0 5px rgba(204, 34, 51, 0.4));
+        }
+
+        /* Container do título */
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+		
+		  /* FOOTER ESTILIZADO */
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: auto;
+            min-width: 120px;
+            justify-content: center;
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .footer-content a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        [data-theme="dark"] .footer-content a {
+            background: #cc2233;
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .footer-content a:hover {
+            background: #b31e2e;
+            box-shadow: 0 4px 15px rgba(204, 34, 51, 0.3);
+        }
+
+        .footer-text {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        [data-theme="dark"] .footer-text {
+            color: #cc5566;
+        }
+
+        /* Responsividade do Footer */
+        @media (max-width: 480px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .footer-content a {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+
+        /* Responsividade */
+        @media (min-width: 768px) {
+            .btn-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            a {
+                width: auto;
+                min-width: 180px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title-container">
+            <button id="trocar_tema" class="troca_tema">
+                <span class="rock">🤘</span>
+                <span class="peace">✌️</span>
+            </button> 
+            <h1>Cofre de Ideias</h1>
+        </div>
+        
+        <p>Bem-vindo! Aqui você pode anotar, organizar e guardar todas as suas ideias brilhantes.</p>
+        
+       <div class="btn-container">
+			<a href="visualizar_ideias.php">📋 Visualizar Ideias</a>
+			<a href="Registrar_nova_ideia.php">➕ Nova Ideia</a>
+			<a href="kanban.php" style="background: #17a2b8 !important;">📋 Kanban</a>
+			<a href="painel_analytics.php" class="btn-analytics">📊 Analytics</a>
+		</div>
+    </div>
+	
+	 <footer>
+        <div class="footer-content">
+            <a href="https://abrir.link/SRQhj" class="footer-link">
+                <span>🔗</span> LinkedIn
+            </a>
+            <a href="https://github.com/JulioCezzar" class="footer-link">
+                <span>🐙</span> GitHub
+            </a>
+        </div>
+        <div class="footer-text">
+            © 2025 Cofre de Ideias - Desenvolvido por Júlio Cézar
+        </div>
+    </footer>
+	
+    <script>
+        const trocar_tema = document.getElementById('trocar_tema');
+
+        const Salvar_Tema = localStorage.getItem('theme');
+        if (Salvar_Tema) {
+            document.documentElement.setAttribute('data-theme', Salvar_Tema);
+        }
+
+        trocar_tema.addEventListener('click', function(){
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const novo_tema = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', novo_tema);
+            localStorage.setItem('theme', novo_tema);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+/* theme.css - Arquivo CSS separado para os temas */
+:root {
+    --bg-color: linear-gradient(135deg, #f7f8fa, #e8edf3);
+    --text-color: #333333;
+    --primary-color: #007bff;
+    --container-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --border-color: #dee2e6;
+}
+
+[data-theme="dark"] {
+    --bg-color: linear-gradient(135deg, #0a0a0a, #1a0f0f);
+    --text-color: #cc2233;
+    --primary-color: #cc2233;
+    --container-bg: #1a0a0a;
+    --shadow: rgba(204, 34, 51, 0.2);
+    --border-color: #333333;
+}
+
+/* ===== ESTILOS GERAIS QUE USAM VARIÁVEIS ===== */
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.4s ease;
+}
+
+/* Top buttons */
+.top-buttons a {
+    background: var(--primary-color);
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+.top-buttons a:hover {
+    box-shadow: 0 6px 12px var(--shadow);
+}
+
+/* Títulos */
+h1, h2, h3 {
+    color: var(--primary-color);
+}
+
+/* Container principal */
+.container {
+    background: var(--container-bg);
+    box-shadow: 0 6px 20px var(--shadow);
+}
+
+[data-theme="dark"] .container {
+    border: 1px solid #cc2233;
+}
+
+/* Texto do small dentro dos itens */
+[data-theme="dark"] .ideia-item small {
+    color: #cc5566 !important;
+}
+
+/* ===== BOTÃO DE TEMA ===== */
+
+.troca_tema {
+    background: #000000;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1001;
+}
+
+.troca_tema:hover {
+    transform: scale(1.1);
+}
+
+[data-theme="dark"] .troca_tema {
+    background: #cc2233;
+    border: 2px solid #000000;
+}
+
+[data-theme="dark"] .troca_tema:hover {
+    transform: scale(1.1) rotate(-10deg);
+}
+
+.rock { display: inline; }
+.peace { display: none; }
+
+[data-theme="dark"] .peace { display: inline; }
+[data-theme="dark"] .rock { display: none; }

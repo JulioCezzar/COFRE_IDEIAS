@@ -1,0 +1,48 @@
+/* theme_site/dark-theme.css */
+[data-theme="dark"] body {
+    background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(26, 15, 15, 0.9)), 
+                url('background-dark.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+}
+
+[data-theme="dark"] .container,
+[data-theme="dark"] .kanban-container,
+[data-theme="dark"] .analytics-container,
+[data-theme="dark"] .ideia-item,
+[data-theme="dark"] .kanban-column,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .chart-container,
+[data-theme="dark"] .search-info,
+[data-theme="dark"] .search-results-count {
+    background: rgba(26, 10, 10, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(204, 34, 51, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .ideia-card {
+    background: rgba(30, 15, 15, 0.9) !important;
+}
+
+/* Melhorar legibilidade do texto */
+[data-theme="dark"] {
+    --text-color: #e8e8e8;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] .empty-column,
+[data-theme="dark"] .search-example {
+    color: #e8e8e8 !important;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4 {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(204, 34, 51, 0.5);
+}

@@ -1,0 +1,164 @@
+/* theme_site/universal-theme.css */
+
+/* ===== MODO LIGHT COM IMAGEM ===== */
+[data-theme="light"] body {
+     background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(240, 240, 240, 0.2)),  
+                url('background-light.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+}
+
+[data-theme="light"] .container,
+[data-theme="light"] .kanban-container,
+[data-theme="light"] .analytics-container,
+[data-theme="light"] .ideia-item,
+[data-theme="light"] .kanban-column,
+[data-theme="light"] .stat-card,
+[data-theme="light"] .chart-container,
+[data-theme="light"] .search-info,
+[data-theme="light"] .search-results-count {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 123, 255, 0.2) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .ideia-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 123, 255, 0.15) !important;
+}
+
+/* ===== MODO DARK COM IMAGEM ===== */
+[data-theme="dark"] body {
+    background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(26, 15, 15, 0.9)), 
+                url('theme_site/background-dark.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+}
+
+[data-theme="dark"] .container,
+[data-theme="dark"] .kanban-container,
+[data-theme="dark"] .analytics-container,
+[data-theme="dark"] .ideia-item,
+[data-theme="dark"] .kanban-column,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .chart-container,
+[data-theme="dark"] .search-info,
+[data-theme="dark"] .search-results-count {
+    background: rgba(26, 10, 10, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(204, 34, 51, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .ideia-card {
+    background: rgba(30, 15, 15, 0.9) !important;
+}
+
+/* ===== ESTILOS GLOBAIS ===== */
+
+/* Melhorar legibilidade do texto no light */
+[data-theme="light"] {
+    --text-color: #333333;
+}
+
+[data-theme="light"] p,
+[data-theme="light"] .empty-column,
+[data-theme="light"] .search-example {
+    color: #555555 !important;
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4 {
+    color: #2c3e50 !important;
+}
+
+/* Melhorar legibilidade do texto no dark */
+[data-theme="dark"] {
+    --text-color: #e8e8e8;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] .empty-column,
+[data-theme="dark"] .search-example {
+    color: #e8e8e8 !important;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4 {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(204, 34, 51, 0.5);
+}
+
+/* Botões com efeito de vidro */
+[data-theme="light"] a,
+[data-theme="light"] .btn-kanban,
+[data-theme="light"] .btn-analytics {
+    background: rgba(0, 123, 255, 0.9) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] a,
+[data-theme="dark"] .btn-kanban,
+[data-theme="dark"] .btn-analytics {
+    background: rgba(204, 34, 51, 0.9) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Efeitos hover nos botões */
+[data-theme="light"] a:hover,
+[data-theme="light"] .btn-kanban:hover,
+[data-theme="light"] .btn-analytics:hover {
+    background: rgba(0, 123, 255, 1) !important;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.3) !important;
+}
+
+[data-theme="dark"] a:hover,
+[data-theme="dark"] .btn-kanban:hover,
+[data-theme="dark"] .btn-analytics:hover {
+    background: rgba(204, 34, 51, 1) !important;
+    box-shadow: 0 0 20px rgba(204, 34, 51, 0.4) !important;
+}
+
+/* Tags e elementos especiais */
+[data-theme="light"] .tag,
+[data-theme="light"] .card-tag {
+    background: rgba(0, 123, 255, 0.9) !important;
+    backdrop-filter: blur(5px);
+}
+
+[data-theme="dark"] .tag,
+[data-theme="dark"] .card-tag {
+    background: rgba(204, 34, 51, 0.9) !important;
+    backdrop-filter: blur(5px);
+}
+
+/* Campos de input e busca */
+[data-theme="light"] .search-bar,
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 123, 255, 0.3) !important;
+}
+
+[data-theme="dark"] .search-bar,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background: rgba(30, 15, 15, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(204, 34, 51, 0.3) !important;
+    color: #ffffff !important;
+}
